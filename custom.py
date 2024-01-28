@@ -20,6 +20,8 @@ def get_story(image_caption, st):
         }
         response = requests.post(API_URL, headers = headers, json = payload)
         return response.json()
+    
+    print(f'image_caption : {image_caption}')
 
     data            = query(image_caption, max_new_tokens = 250)
     generated_text  = data[0].get("generated_text", "")

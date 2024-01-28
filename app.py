@@ -42,4 +42,4 @@ if st.button("Generate Text from Image"):
 
     print(f'image_caption : {image_caption}')
     
-    custom.get_story(image_caption, st)
+    # custom.get_story(image_caption, st)
