@@ -13,9 +13,11 @@ source:
 
 from transformers import pipeline
 
-def img2text(url):
+def img2text(url, index):
     
     image_to_text   = pipeline("image-to-text", model = "Salesforce/blip-image-captioning-base")
     text            = image_to_text(url)[0]['generated_text']
+
+    print(f'[{index}] content : {text}')
     
     return text
