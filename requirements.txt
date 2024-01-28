@@ -1,0 +1,6 @@
+streamlit==0.1.0
+requests==2.31.
+transformers==4.37.1
+python-dotenv==1.0.1
+torch==2.1.2
+ipython==8.18.1
