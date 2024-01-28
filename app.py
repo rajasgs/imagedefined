@@ -6,8 +6,7 @@ Created on
 
 source:
 
-    Salesforce blip image captioning base
-    https://huggingface.co/Salesforce/blip-image-captioning-base
+    ?
 '''
 
 def startpy():
@@ -20,10 +19,11 @@ if __name__ == '__main__':
 
 import streamlit as st
 from dotenv import find_dotenv, load_dotenv
-from transformers import pipeline
+
 
 # Local
 import custom
+import util
 
 
 # from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -35,21 +35,17 @@ load_dotenv(find_dotenv())
 
 # print(f'HUGGINGFACEHUB_API_TOKENS : {HUGGINGFACEHUB_API_TOKENS}')
 
-def img2text(url):
-    
-    image_to_text   = pipeline("image-to-text", model = "Salesforce/blip-image-captioning-base")
-    text            = image_to_text(url)[0]['generated_text']
-    st.text("Generated Text from Image:")
-    st.write(text)
-
-    st.image(url, use_column_width = True)
-    return text
 
 # Get the image URL from the user
 image_url = st.text_input("Enter the URL of the image:")
 if st.button("Generate Text from Image"):
 
-    image_caption   = img2text(image_url)
+    image_caption   = util.img2text(image_url)
+
+    st.text("Generated Text from Image:")
+    st.write(image_caption)
+
+    st.image(image_url, use_column_width = True)
 
     print(f'image_caption : {image_caption}')
     
