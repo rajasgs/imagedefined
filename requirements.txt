@@ -1,4 +1,5 @@
-streamlit==0.1.0
+# streamlit==0.1.0
+streamlit==1.30.0
 requests==2.31.
 transformers==4.37.1
 python-dotenv==1.0.1

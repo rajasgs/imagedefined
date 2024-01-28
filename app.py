@@ -9,10 +9,12 @@ import os
 # from transformers import AutoTokenizer, AutoModelForCausalLM
 from IPython.display import Audio
 
-st.title("Image to Audio Text Generation")
+# st.title("Image to Audio Text Generation")
 
 load_dotenv(find_dotenv())
 HUGGINGFACEHUB_API_TOKENS = os.getenv("api_token")
+
+# print(f'HUGGINGFACEHUB_API_TOKENS : {HUGGINGFACEHUB_API_TOKENS}')
 
 def img2text(url):
     
@@ -25,11 +27,7 @@ def img2text(url):
     return text
 
 
-# Get the image URL from the user
-image_url = st.text_input("Enter the URL of the image:")
-if st.button("Generate Text from Image"):
-
-    image_caption   = img2text(image_url)
+def get_story():
 
     API_URL         = "https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta"
     headers         = {"Authorization": "Bearer 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"}
@@ -59,3 +57,14 @@ if st.button("Generate Text from Image"):
 
         # Create an Audio object to play the binary audio data
         return Audio(audio, rate = sampling_rate)
+
+
+# Get the image URL from the user
+image_url = st.text_input("Enter the URL of the image:")
+if st.button("Generate Text from Image"):
+
+    image_caption   = img2text(image_url)
+
+    print(f'image_caption : {image_caption}')
+    
+    # get_story()
